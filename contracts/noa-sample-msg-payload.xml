@@ -46,14 +46,14 @@
                                 <ac:Document>
                                     <ac:DocumentReference>4960185</ac:DocumentReference>
                                     <ac:DocumentVersion/>
-                                    <ac:FileId>Morgan Services Inc_Property Template_Commercial Property Coverage.doc
+                                    <ac:FileId>Services Inc_Property Template_Commercial Property Coverage.doc
                                     </ac:FileId>
                                     <ac:FileSize>
                                         <ac:NumUnits>140</ac:NumUnits>
                                         <ac:UnitMeasurementCd>KB</ac:UnitMeasurementCd>
                                     </ac:FileSize>
                                     <ac:DocumentTypeCd>correspondence</ac:DocumentTypeCd>
-                                    <ac:Description>Morgan Services Inc_Property Template_Commercial Property Coverage
+                                    <ac:Description>Services Inc_Property Template_Commercial Property Coverage
                                     </ac:Description>
                                 </ac:Document>
                             </ac:Attachment>
@@ -72,13 +72,13 @@
                                 <ac:Document>
                                     <ac:DocumentReference>4960186</ac:DocumentReference>
                                     <ac:DocumentVersion/>
-                                    <ac:FileId>Morgan Services Inc_General Introduction Template_AllLOBS.doc</ac:FileId>
+                                    <ac:FileId>Services Inc_General Introduction Template_AllLOBS.doc</ac:FileId>
                                     <ac:FileSize>
                                         <ac:NumUnits>114</ac:NumUnits>
                                         <ac:UnitMeasurementCd>KB</ac:UnitMeasurementCd>
                                     </ac:FileSize>
                                     <ac:DocumentTypeCd>correspondence</ac:DocumentTypeCd>
-                                    <ac:Description>Morgan Services Inc_General Introduction Template_AllLOBS
+                                    <ac:Description>Services Inc_General Introduction Template_AllLOBS
                                     </ac:Description>
                                 </ac:Document>
                             </ac:Attachment>
@@ -122,7 +122,7 @@
                                 <ac:Document>
                                     <ac:DocumentReference>4960188</ac:DocumentReference>
                                     <ac:DocumentVersion/>
-                                    <ac:FileId>Morgan Services Inc_General Liability Template_General Liability
+                                    <ac:FileId>Services Inc_General Liability Template_General Liability
                                         Coverage.doc
                                     </ac:FileId>
                                     <ac:FileSize>
@@ -130,7 +130,7 @@
                                         <ac:UnitMeasurementCd>KB</ac:UnitMeasurementCd>
                                     </ac:FileSize>
                                     <ac:DocumentTypeCd>correspondence</ac:DocumentTypeCd>
-                                    <ac:Description>Morgan Services Inc_General Liability Template_General Liability
+                                    <ac:Description>Services Inc_General Liability Template_General Liability
                                         Coverage
                                     </ac:Description>
                                 </ac:Document>
