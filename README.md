@@ -9,4 +9,4 @@ It uses the following frameworks and is written in Kotlin.
 
 The service end point takes XML request and sends XML response back. The processing is all around receiving attachments from the client and generating email and attach same files which were received through request XML.
 
-I used Apache TCP Mon (https://ws.apache.org/tcpmon/) to monitor if the content over the wire uses XOP or not. Apache has discontinued TCP Mon but still a good basic tool to understand the traffic. You may use Fiddler or Wireshark as well.  
+I used Apache TCP Mon (https://ws.apache.org/tcpmon/) to monitor if the content over the wire uses XOP or not. Apache has discontinued TCP Mon but still a good basic tool to understand the traffic details. You may use Fiddler or Wireshark as well.  
