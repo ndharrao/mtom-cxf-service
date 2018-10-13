@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+           targetNamespace="http://www.nsd.com/noa/schema"
+           xmlns:tns="http://www.nsd.com/noa/schema" elementFormDefault="qualified">
+
+    <!-- Request data structure -->
+    <xs:element name="PostRq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Sender" type="tns:Sender"/>
+                <xs:element name="Receiver" type="tns:Receiver"/>
+                <xs:element name="Application" type="tns:Application"/>
+                <xs:element name="TimeStamp" type="xs:dateTime"/>
+                <xs:element name="MsgItem" type="tns:MsgItem"/>
+                <xs:element name="SecurityProfileCd" type="xs:string"/>
+                <xs:element name="WorkFolder">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MsgFile" type="tns:MsgFile"/>
+                            <xs:element name="AttachmentPackages" type="tns:AttachmentPackages"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response data structure -->
+    <xs:complexType name="PostRs">
+        <xs:sequence>
+            <xs:element name="MsgStatus" type="tns:MsgStatus"/>
+            <xs:element name="Sender" type="tns:Sender"/>
+            <xs:element name="Receiver" type="tns:Receiver"/>
+            <xs:element name="Application" type="tns:Application"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <!--Other complex types -->
+
+
+    <xs:complexType name="Sender">
+        <xs:sequence>
+            <xs:element name="PartyId" type="xs:string"/>
+            <xs:element name="PartyRoleCd" type="xs:string"/>
+            <xs:element name="PartyName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Receiver">
+        <xs:sequence>
+            <xs:element name="PartyId" type="xs:string"/>
+            <xs:element name="PartyRoleCd" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Application">
+        <xs:sequence>
+            <xs:element name="ApplicationCd" type="xs:string"/>
+            <xs:element name="SchemaVersion" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MsgItem">
+        <xs:sequence>
+            <xs:element name="MsgId" type="xs:string"/>
+            <xs:element name="MsgTypeCd" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MsgFile">
+        <xs:sequence>
+            <xs:element name="FileId" type="xs:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+            <xs:element name="FileFormatCd" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Owner">
+        <xs:sequence>
+            <xs:element name="PartyId" type="xs:string"/>
+            <xs:element name="PartyRoleCd" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FileSize">
+        <xs:sequence>
+            <xs:element name="NumUnits" type="xs:int"/>
+            <xs:element name="UnitMeasurementCd" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Document">
+        <xs:sequence>
+            <xs:element name="DocumentReference" type="xs:int"/>
+            <xs:element name="DocumentVersion" type="xs:string"/>
+            <xs:element name="FileId" type="xs:string"/>
+            <xs:element name="FileSize" type="tns:FileSize"/>
+            <xs:element name="DocumentTypeCd" type="xs:string"/>
+            <xs:element name="Description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Attachment">
+        <xs:sequence>
+            <xs:element name="Document" type="tns:Document"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Attachments">
+        <xs:sequence>
+            <xs:element name="Attachment" type="tns:Attachment"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AttachmentPackage">
+        <xs:sequence>
+            <xs:element name="Owner" type="tns:Owner"/>
+            <xs:element name="CommunicationChannelCd" type="xs:string"/>
+            <xs:element name="FileId" type="xs:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+            <xs:element name="FileFormatCd" type="xs:string"/>
+            <xs:element name="Attachments" type="tns:Attachments"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AttachmentPackages">
+        <xs:sequence>
+            <xs:element name="AttachmentPackage" type="tns:AttachmentPackage" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="MsgStatus">
+        <xs:sequence>
+            <xs:element name="MsgStatusCd" type="xs:string"/>
+            <xs:element name="MsgStatusDescription" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="postResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="response" type="tns:PostRs"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

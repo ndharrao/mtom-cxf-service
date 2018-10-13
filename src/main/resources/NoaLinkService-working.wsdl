@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://service.cxf.noa.nsd.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="http://service.cxf.noa.nsd.com">
+    <wsdl:types>
+        <xs:schema
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:tns="http://service.cxf.noa.nsd.com/noalink"
+                elementFormDefault="unqualified"
+                targetNamespace="http://service.cxf.noa.nsd.com/noalink"
+                version="1.0">
+            <xs:import namespace="http://service.cxf.noa.nsd.com" schemaLocation="noa-soap-contract.xsd"/>
+        </xs:schema>
+    </wsdl:types>
+
+    <wsdl:message name="PostRq">
+        <wsdl:part element="tns:PostRq" name="postRq"/>
+    </wsdl:message>
+
+    <wsdl:message name="postResponse">
+        <wsdl:part element="tns:postResponse" name="postResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="NoaLinkService">
+        <wsdl:operation name="postRequest">
+            <wsdl:input message="tns:PostRq"/>
+            <wsdl:output message="tns:postResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="NoaLinkServiceImplServiceSoapBinding" type="tns:NoaLinkService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <wsdl:operation name="postRequest">
+            <soap:operation soapAction="http://service.cxf.noa.nsd.com/noalink/postRequest"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="NoaLinkServiceImplService">
+        <wsdl:port binding="tns:NoaLinkServiceImplServiceSoapBinding" name="NoaLinkServiceImplPort">
+            <soap:address location="http://localhost:8080/services/NoaLinkService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="http://www.nsd.com/noa/schema"
+                  targetNamespace="http://www.nsd.com/noa/schema">
+
+    <wsdl:types>
+        <xs:schema targetNamespace="http://www.nsd.com/noa/service">
+            <xs:import namespace="http://www.nsd.com/noa/schema" schemaLocation="noa-soap-contract.xsd"/>
+        </xs:schema>
+    </wsdl:types>
+
+    <wsdl:message name="PostRq">
+        <wsdl:part element="tns:PostRq" name="postRq"/>
+    </wsdl:message>
+
+    <wsdl:message name="postResponse">
+        <wsdl:part element="tns:postResponse" name="postResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="NoaLinkService">
+        <wsdl:operation name="postRequest">
+            <wsdl:input message="tns:PostRq"/>
+            <wsdl:output message="tns:postResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="NoaLinkServiceImplServiceSoapBinding" type="tns:NoaLinkService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <wsdl:operation name="postRequest">
+            <soap:operation soapAction="http://www.nsd.com/noa/service/postRequest"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="NoaLinkServiceImplService">
+        <wsdl:port binding="tns:NoaLinkServiceImplServiceSoapBinding" name="NoaLinkServiceImplPort">
+            <soap:address location="http://localhost:8080/service/NoaLinkService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

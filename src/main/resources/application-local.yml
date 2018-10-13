@@ -1,0 +1,6 @@
+mail:
+  host: mailhost-your-org.your-org.com
+  user: user-name
+  password: user-password
+  from: from@your-org.com
+  subject: CXF SERVICE DEMO SUBJECT LINE
